@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.crudapp.CarController">
+    <!-- Верхняя панель с полем поиска -->
+    <top>
+        <HBox spacing="10" alignment="CENTER" style="-fx-padding: 10;">
+            <TextField fx:id="searchField" promptText="Search..."/>
+            <Button text="Search" onAction="#searchCar"/>
+        </HBox>
+    </top>
+
+    <!-- Основная панель с таблицей -->
+    <center>
+        <TableView fx:id="tableView">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="50" cellValueFactory="cellData -> cellData.getValue().idProperty()"/>
+                <TableColumn fx:id="colMark" text="Mark" prefWidth="150" cellValueFactory="cellData -> cellData.getValue().brandProperty()"/>
+                <TableColumn fx:id="colInfo" text="Info" prefWidth="200" cellValueFactory="cellData -> cellData.getValue().getInfo()"/>
+                <TableColumn fx:id="colCreated" text="Created" prefWidth="150"/>
+                <TableColumn fx:id="colUpdated" text="Updated" prefWidth="150"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <!-- Нижняя панель с кнопками -->
+    <bottom>
+        <HBox spacing="10" alignment="CENTER" style="-fx-padding: 10;">
+            <Button text="Add" onAction="#addCar"/>
+            <Button text="Edit" onAction="#editCar"/>
+            <Button text="Delete" onAction="#deleteCar"/>
+        </HBox>
+    </bottom>
+</BorderPane>
